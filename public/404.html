@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Verinizer - Loading...</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: 'Inter', system-ui, sans-serif;
+        background-color: #0f172a;
+        color: #f1f5f9;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      
+      .loading-spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid #334155;
+        border-top: 4px solid #06b6d4;
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+      }
+      
+      @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+      }
+      
+      .loading-text {
+        background: linear-gradient(45deg, #06b6d4, #22c55e, #a855f7);
+        background-size: 200% 200%;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        animation: gradient-shift 2s ease-in-out infinite;
+      }
+      
+      @keyframes gradient-shift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+      }
+    </style>
+    <script>
+      // GitHub Pages SPA fallback - redirect to index.html with path preserved
+      (function() {
+        const path = window.location.pathname;
+        const base = '/Varenizer-test2/';
+        
+        if (path !== base && path !== base + 'index.html') {
+          // Store the current path and redirect to index
+          sessionStorage.setItem('githubPagesPath', path);
+          window.location.replace(base);
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <div class="loading-spinner"></div>
+    <div class="loading-text">Redirecting to Verinizer...</div>
+  </body>
+</html>
